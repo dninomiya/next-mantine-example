@@ -12,7 +12,7 @@ type Props = {
 
 const AvatarEditorModal = ({ opened, close, image, onCrop }: Props) => {
   const editor = createRef<AvatarEditor>();
-  const [scale, setScale] = useState(1.2);
+  const [scale, setScale] = useState(1);
 
   const handleSave = () => {
     const dataURL = editor.current?.getImage().toDataURL('image/png');
@@ -35,7 +35,7 @@ const AvatarEditorModal = ({ opened, close, image, onCrop }: Props) => {
               width: '100%',
               height: '100%',
               overflow: 'hidden',
-              borderRadius: '12px',
+              borderRadius: '8px',
             }}
             ref={editor}
             image={image}
@@ -47,11 +47,11 @@ const AvatarEditorModal = ({ opened, close, image, onCrop }: Props) => {
 
         <Slider
           onChange={(e) => setScale(e)}
-          min={1.2}
+          min={1}
           label={null}
           max={2}
           step={0.01}
-          defaultValue={1.2}
+          defaultValue={1}
         />
 
         <Flex gap="md">
